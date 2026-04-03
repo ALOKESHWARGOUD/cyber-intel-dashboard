@@ -23,9 +23,7 @@
         }
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0;   padding: 0;   box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -37,7 +35,6 @@
             line-height: 1.5;
         }
 
-        /* Storytelling Sections */
         section {
             min-height: 100vh;
             padding: 10vh 10vw;
@@ -61,7 +58,6 @@
             width: 100%;
         }
 
-        /* Typography Hierarchy */
         .mono-tag {
             font-family: var(--font-mono);
             color: var(--accent-blue);
@@ -73,16 +69,16 @@
         }
 
         h1 {
-            font-size: clamp(3rem, 7vw, 6rem);
+            font-size: clamp(2.5rem, 6vw, 5rem);
             font-weight: 900;
-            line-height: 0.9;
+            line-height: 1;
             letter-spacing: -0.05em;
             text-transform: uppercase;
             margin-bottom: 2rem;
         }
 
         h2 {
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(1.8rem, 4vw, 3.5rem);
             font-weight: 800;
             letter-spacing: -0.03em;
             text-transform: uppercase;
@@ -90,14 +86,13 @@
         }
 
         .lead {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
             color: var(--text-dim);
             max-width: 800px;
-            margin-bottom: 3rem;
-            font-weight: 300;
+            margin-bottom: 2rem;
+            font-weight: 400;
         }
 
-        /* Card System */
         .intel-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -115,326 +110,193 @@
             letter-spacing: -0.05em;
         }
 
-        /* Grid Layouts */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
-        /* Animated Pipeline */
-        .pipeline {
-            display: flex;
-            gap: 2rem;
-            margin-top: 3rem;
+        ul.check-list {
+            list-style: none;
+            margin-top: 1rem;
         }
 
-        .pipe-node {
-            flex: 1;
-            padding: 2rem;
-            border: 1px dashed var(--border);
-            text-align: center;
-            background: rgba(255,255,255,0.02);
-        }
-
-        /* Revenue Specifics */
-        .revenue-display {
-            background: linear-gradient(135deg, #1a0505 0%, #050505 100%);
-            border: 2px solid var(--accent-red);
-            padding: 4rem;
-            text-align: center;
-            box-shadow: 0 0 40px rgba(255, 77, 79, 0.15);
-        }
-
-        /* Timeline */
-        .timeline {
-            border-left: 2px solid var(--border);
-            margin-left: 1rem;
-            padding: 1rem 0 1rem 2.5rem;
-        }
-
-        .t-step {
-            margin-bottom: 3rem;
+        ul.check-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
             position: relative;
+            font-size: 1.2rem;
         }
 
-        .t-step::before {
-            content: '';
+        ul.check-list li::before {
+            content: '🚨';
             position: absolute;
-            left: -49px;
-            top: 5px;
-            width: 14px;
-            height: 14px;
-            background: var(--accent-blue);
-            border-radius: 50%;
+            left: 0;
         }
 
-        /* Charts SVG */
-        .chart-svg {
-            width: 100%;
-            height: 350px;
-            overflow: visible;
+        .success-li::before {
+            content: '✅' !important;
         }
 
         @media (max-width: 768px) {
-            .pipeline { flex-direction: column; }
-            .grid-3 { grid-template-columns: 1fr; }
-            h1 { font-size: 3.5rem; }
+            h1 { font-size: 2.5rem; }
             .stat-huge { font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. PROBLEM -->
+    <!-- 01 // PROBLEM -->
     <section id="problem">
         <div class="container">
-            <span class="mono-tag">01 // Problem Identification</span>
-            <h1>The <span style="color:var(--accent-red)">Uncontrolled</span> Leak</h1>
-            <p class="lead">Telegram piracy infrastructure has scaled beyond manual oversight. Premium education assets are currently circulating through decentralized piracy nodes.</p>
-            <div class="intel-card" style="border-left: 4px solid var(--accent-red);">
-                <div class="stat-huge" style="color:var(--accent-red)">5,115</div>
-                <div class="mono-tag" style="color:var(--text-main); margin-top: 1rem;">Total Infringing Assets Leaked</div>
+            <span class="mono-tag">01 // Problem</span>
+            <h1 style="color:var(--accent-red)">CONTENT LEAKING OUT OF CONTROL</h1>
+            <p class="lead">Your paid courses are being shared on Telegram without your permission.</p>
+            <div class="grid-3">
+                <div class="intel-card" style="border-top: 4px solid var(--accent-red);">
+                    <div class="stat-huge" style="color:var(--accent-red)">5,115</div>
+                    <p class="mono-tag">Pirated videos/files found</p>
+                </div>
+                <div class="intel-card">
+                    <p style="font-size: 1.2rem;">Users are bypassing your paywall and accessing your hard work for <strong>free</strong>.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. IMPACT -->
-    <section id="impact">
+    <!-- 02 // BUSINESS LOSS -->
+    <section id="business-loss">
         <div class="container">
-            <span class="mono-tag">02 // Business Erosion</span>
-            <h2>Immediate Erosion</h2>
+            <span class="mono-tag">02 // Business Loss</span>
+            <h2>HOW THIS IS HURTING YOU</h2>
             <div class="grid-3">
                 <div class="intel-card">
-                    <h3 class="mono-tag">Financial Hemorrhage</h3>
-                    <p>Direct erosion of user LTV (Lifetime Value) as paywalls are bypassed globally.</p>
+                    <h3 class="mono-tag">💸 Revenue Loss</h3>
+                    <p>Potential students are shifting to free pirated versions instead of buying your official courses.</p>
                 </div>
                 <div class="intel-card">
-                    <h3 class="mono-tag">Brand Devaluation</h3>
-                    <p>Exclusive content loses market authority when shared in public "Free" repositories.</p>
+                    <h3 class="mono-tag">📉 Brand Damage</h3>
+                    <p>Premium content loses its perceived value when it's available everywhere for free.</p>
                 </div>
                 <div class="intel-card">
-                    <h3 class="mono-tag">Market Saturation</h3>
-                    <p>Pirated modules compete directly with organic sales in search and social feeds.</p>
+                    <h3 class="mono-tag">⚔️ Market Impact</h3>
+                    <p>Piracy is now your biggest competitor, showing up directly in student search results.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. EXPLOSION -->
-    <section id="explosion">
-        <div class="container">
-            <span class="mono-tag">03 // Virality Vector</span>
-            <h2>Piracy Growth Spike</h2>
-            <div class="intel-card">
-                <svg class="chart-svg" viewBox="0 0 1000 300">
-                    <path d="M 50 250 Q 250 240, 500 150 T 950 50" fill="none" stroke="var(--accent-red)" stroke-width="4" stroke-dasharray="1000" stroke-dashoffset="1000" id="growthPath" />
-                    <circle cx="50" cy="250" r="6" fill="var(--accent-red)" />
-                    <text x="50" y="280" fill="var(--text-dim)" font-family="monospace">85 Assets</text>
-                    <circle cx="500" cy="150" r="6" fill="var(--accent-red)" />
-                    <text x="480" y="130" fill="white" font-family="monospace">2122 Assets</text>
-                    <circle cx="950" cy="50" r="8" fill="var(--accent-red)" />
-                    <text x="850" y="30" fill="var(--accent-red)" font-weight="bold" font-family="monospace">2908 (PEAK)</text>
-                </svg>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. CONCENTRATION -->
+    <!-- 04 // MAIN SOURCE -->
     <section id="concentration">
         <div class="container">
-            <span class="mono-tag">04 // Node Density</span>
-            <h2>High Concentration Risk</h2>
+            <span class="mono-tag">04 // Main Source of Leaks</span>
+            <h2>FEW GROUPS CAUSE MOST DAMAGE</h2>
             <div class="grid-3">
                 <div style="grid-column: span 2;">
                     <div class="stat-huge" style="color:var(--accent-blue)">56.8%</div>
-                    <p class="lead">Over half of all detected piracy is originating from a single high-priority node. We identify these "Source Hubs" to disable mass distribution at the root.</p>
-                </div>
-                <div class="intel-card">
-                    <p class="mono-tag">Insight</p>
-                    <p>"Few nodes drive majority of piracy."</p>
+                    <p class="lead">More than half of your leaks come from <strong>one major piracy hub</strong>. Stopping a few key groups will cut off the majority of the problem.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. THREAT SOURCES -->
+    <!-- 05 // WHERE IT IS COMING FROM -->
     <section id="sources">
         <div class="container">
-            <span class="mono-tag">05 // Identified Entities</span>
-            <h2>Distribution Nodes</h2>
+            <span class="mono-tag">05 // Where it is coming from</span>
+            <h2>MAJOR TELEGRAM GROUPS</h2>
             <div class="grid-3">
                 <div class="intel-card">
-                    <h4 class="mono-tag">NEET PG V5</h4>
-                    <p>Primary distribution cluster with systemic content mapping.</p>
+                    <h4 class="mono-tag" style="color:var(--accent-red)">NEET PG V5</h4>
+                    <p>Main source sharing full course content.</p>
                 </div>
                 <div class="intel-card">
-                    <h4 class="mono-tag">QRP V5</h4>
-                    <p>Secondary high-speed revision content repository.</p>
+                    <h4 class="mono-tag" style="color:var(--accent-red)">QRP V5</h4>
+                    <p>Fast sharing of revision and high-yield content.</p>
                 </div>
                 <div class="intel-card">
-                    <h4 class="mono-tag">ENT Rajib</h4>
-                    <p>Niche faculty cluster focused on targeted subject leaks.</p>
+                    <h4 class="mono-tag" style="color:var(--accent-red)">ENT RAJIB</h4>
+                    <p>Targeted subject-specific leaks.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. SOLUTION -->
-    <section id="solution">
-        <div class="container">
-            <span class="mono-tag">06 // Defense Stack</span>
-            <h2>Active Neutralization Stack</h2>
-            <div class="pipeline">
-                <div class="pipe-node">
-                    <h4 class="mono-tag">Python Automation</h4>
-                    <p>High-frequency crawlers scanning Telegram API 24/7.</p>
-                </div>
-                <div class="pipe-node">
-                    <h4 class="mono-tag">Fingerprinting</h4>
-                    <p>Media metadata verification to confirm infringing assets.</p>
-                </div>
-                <div class="pipe-node">
-                    <h4 class="mono-tag">Keyword Traps</h4>
-                    <p>Semantic triggers identifying content even behind aliases.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. SPEED -->
+    <!-- 07 // SPEED OF ACTION -->
     <section id="speed">
         <div class="container">
-            <span class="mono-tag">07 // SLA Performance</span>
-            <h2>Response Efficiency</h2>
-            <div class="timeline">
-                <div class="t-step">
-                    <h4 class="mono-tag">Immediate Detection</h4>
-                    <p>Detection within minutes of initial post on tracked channels.</p>
-                </div>
-                <div class="t-step">
-                    <h4 class="mono-tag">24/7 Monitoring</h4>
-                    <p>Persistent surveillance cycle ensures no downtime for piracy nodes.</p>
-                </div>
+            <span class="mono-tag">07 // Speed of Action</span>
+            <h2>FAST RESPONSE</h2>
+            <div class="intel-card" style="border-left: 5px solid var(--accent-blue);">
+                <p class="lead">"Leaks detected within minutes."</p>
+                <p>Because the system never sleeps, we catch piracy before it can spread to the next thousand users.</p>
             </div>
         </div>
     </section>
 
-    <!-- 8. RESULTS -->
+    <!-- 08 // RESULTS SO FAR -->
     <section id="results">
         <div class="container">
-            <span class="mono-tag">08 // Operational Performance</span>
-            <h2>Combat Results</h2>
+            <span class="mono-tag">08 // Results So Far</span>
+            <h2>CURRENT PERFORMANCE</h2>
             <div class="grid-3">
                 <div class="intel-card">
                     <div class="stat-huge counter" data-target="5115">0</div>
-                    <div class="mono-tag">Detected</div>
-                </div>
-                <div class="intel-card">
-                    <div class="stat-huge counter" data-target="1705">0</div>
-                    <div class="mono-tag">Avg / Day</div>
+                    <div class="mono-tag">Leaks Found</div>
                 </div>
                 <div class="intel-card">
                     <div class="stat-huge counter" data-target="1140">0</div>
-                    <div class="mono-tag">Closed</div>
+                    <div class="mono-tag">Links Removed</div>
                 </div>
-            </div>
-            <div class="intel-card" style="margin-top: 1.5rem; text-align: center;">
-                <div class="stat-huge" style="color:var(--accent-green)">81%</div>
-                <div class="mono-tag">Enforcement Efficiency</div>
+                <div class="intel-card">
+                    <div class="stat-huge counter" data-target="81">0</div><span class="stat-huge">%</span>
+                    <div class="mono-tag">Success Rate</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 9. REDUCTION -->
+    <!-- 09 // IMPACT -->
     <section id="reduction">
         <div class="container">
-            <span class="mono-tag">09 // Threat Decay</span>
-            <h2>Threat Reduction</h2>
+            <span class="mono-tag">09 // Impact</span>
+            <h2>LEAKS ARE REDUCING</h2>
             <div class="stat-huge" style="color:var(--accent-green)">22.3%</div>
-            <p class="lead">Initial control phase established. Active reduction of threat surface area achieved through systematic node targeting.</p>
-            <p class="mono-tag">Message: Initial control phase established</p>
+            <p class="lead">Total reduction achieved. Control has started, but continuous action is required to keep the numbers down.</p>
         </div>
     </section>
 
-    <!-- 10. REVENUE -->
-    <section id="revenue">
-        <div class="container">
-            <span class="mono-tag">10 // Revenue Defense</span>
-            <h2>Revenue Exposure</h2>
-            <div class="revenue-display">
-                <div class="mono-tag" style="color:white">Total Exposure Identified</div>
-                <div class="stat-huge" style="font-size: 6rem;">₹25,57,500</div>
-                <div class="grid-3" style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
-                    <div><p class="mono-tag">Daily</p><strong>₹8,52,500</strong></div>
-                    <div><p class="mono-tag">Hourly</p><strong>₹35,520</strong></div>
-                    <div><p class="mono-tag">Minute</p><strong>₹592</strong></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 11. RISK -->
-    <section id="risk">
-        <div class="container">
-            <span class="mono-tag">11 // Predictive Modeling</span>
-            <h2>Projected Risk</h2>
-            <div class="grid-3">
-                <div class="intel-card" style="background: #1a0a0a; border-color: var(--accent-red);">
-                    <h4 class="mono-tag" style="color:var(--accent-red)">Baseline Failure</h4>
-                    <p style="font-size: 2rem; font-weight: 800;">10,000+</p>
-                    <p class="mono-tag">Leaks / Week</p>
-                </div>
-                <div class="intel-card" style="background: #1a0a0a; border-color: var(--accent-red);">
-                    <h4 class="mono-tag" style="color:var(--accent-red)">Exposure Surge</h4>
-                    <p style="font-size: 2rem; font-weight: 800;">₹50L+</p>
-                    <p class="mono-tag">Projected Weekly Exposure</p>
-                </div>
-            </div>
-            <p class="lead" style="margin-top: 2rem;">"Piracy scales exponentially without control. The delta between protection and passive observation is measured in millions."</p>
-        </div>
-    </section>
-
-    <!-- 12. CONTROL -->
+    <!-- 12 // CURRENT STATUS -->
     <section id="control">
         <div class="container">
-            <span class="mono-tag">12 // Oversight</span>
-            <h2>Ecosystem Control</h2>
-            <div class="grid-3">
-                <div class="intel-card">✔ 5,115 assets tracked</div>
-                <div class="intel-card">✔ 1,140 threats neutralized</div>
-                <div class="intel-card">✔ High-risk nodes identified</div>
-            </div>
-            <div class="lead" style="margin-top: 3rem; color: var(--accent-green); font-weight: 600;">
-                "We are actively controlling piracy infrastructure."
-            </div>
+            <span class="mono-tag">12 // Current Status</span>
+            <h2>CONTROL IN PROGRESS</h2>
+            <ul class="check-list">
+                <li class="success-li">5,115 leaks tracked</li>
+                <li class="success-li">1,140 removed</li>
+                <li class="success-li">Major groups identified</li>
+            </ul>
+            <p class="lead" style="margin-top: 2rem; color: var(--accent-green);">"Situation is being handled, but not fully stopped yet."</p>
         </div>
     </section>
 
-    <!-- 13. FINAL -->
-    <section id="final" style="text-align: center; background: radial-gradient(circle at center, #110505 0%, #000 100%); border-bottom: none;">
+    <!-- 13 // FINAL MESSAGE -->
+    <section id="final" style="text-align: center; border-bottom: none; background: radial-gradient(circle at center, #110505 0%, #000 100%);">
         <div class="container">
-            <h2 style="color:var(--accent-red); font-size: 4rem;">🚨 Your content is already leaking.</h2>
-            <p class="lead" style="margin: 0 auto 3rem;">We identified 5,115 infringing posts across Telegram.</p>
-            <div style="font-size: 2.5rem; font-weight: 900; background: linear-gradient(to right, var(--accent-red), var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase;">
-                We are the layer stopping it.
+            <h2 style="color:var(--accent-red)">🚨 YOUR CONTENT IS ALREADY BEING SHARED ILLEGALLY.</h2>
+            <p class="lead" style="margin: 0 auto 3rem;">Thousands of users are accessing it for free. This is directly affecting your revenue.</p>
+            <div style="font-size: 2rem; font-weight: 900; color: var(--accent-green); text-transform: uppercase;">
+                We are actively working to stop it.
             </div>
         </div>
     </section>
 
     <script>
-        // Intersection Observer for Scroll Effects
-        const observerOptions = { threshold: 0.25 };
+        const observerOptions = { threshold: 0.2 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    
-                    // Specific animations per section
-                    if (entry.target.id === 'explosion') {
-                        document.getElementById('growthPath').style.strokeDashoffset = '0';
-                        document.getElementById('growthPath').style.transition = 'stroke-dashoffset 2s ease-out';
-                    }
                     if (entry.target.id === 'results') {
                         startCounters(entry.target);
                     }
@@ -444,30 +306,26 @@
 
         document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-        // Count-up Animation
         function startCounters(parent) {
             const counters = parent.querySelectorAll('.counter');
             counters.forEach(counter => {
                 if (counter.classList.contains('counted')) return;
                 const target = +counter.getAttribute('data-target');
-                const duration = 2000;
-                const frameRate = 1000 / 60;
-                const totalFrames = Math.round(duration / frameRate);
-                let frame = 0;
+                const duration = 1500;
+                let startTime = null;
 
-                const count = () => {
-                    frame++;
-                    const progress = frame / totalFrames;
-                    const current = Math.round(target * progress);
-                    counter.innerText = current.toLocaleString();
-                    if (frame < totalFrames) {
-                        requestAnimationFrame(count);
+                const animate = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    counter.innerText = Math.floor(progress * target).toLocaleString();
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
                     } else {
                         counter.innerText = target.toLocaleString();
                         counter.classList.add('counted');
                     }
                 };
-                count();
+                requestAnimationFrame(animate);
             });
         }
     </script>
