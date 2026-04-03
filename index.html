@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Intel | Telegram Copyright Enforcement</title>
+    <title>Brand Protection Report | Simplified Summary</title>
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
     <style>
         :root {
             --bg-body: #050505;
-            --bg-card: rgba(18, 18, 18, 0.7);
+            --bg-card: rgba(18, 18, 18, 0.8);
             --accent-red: #ff4d4f;
             --accent-green: #22c55e;
             --accent-blue: #3b82f6;
@@ -22,312 +22,247 @@
             --font-mono: 'JetBrains Mono', monospace;
         }
 
-        * {
-            margin: 0;   padding: 0;   box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
         body {
             background-color: var(--bg-body);
             color: var(--text-main);
             font-family: var(--font-sans);
             overflow-x: hidden;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         section {
             min-height: 100vh;
-            padding: 10vh 10vw;
+            padding: 8vh 10vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
             border-bottom: 1px solid var(--border);
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        section.visible { opacity: 1; transform: translateY(0); }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
+        .container { max-width: 1100px; margin: 0 auto; width: 100%; }
 
         .mono-tag {
             font-family: var(--font-mono);
             color: var(--accent-blue);
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.4em;
             margin-bottom: 1.5rem;
             display: block;
         }
 
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 900;
-            line-height: 1;
-            letter-spacing: -0.05em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-        }
-
-        h2 {
-            font-size: clamp(1.8rem, 4vw, 3.5rem);
+        h1, h2 {
             font-weight: 800;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.04em;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.1;
         }
 
-        .lead {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: var(--text-dim);
-            max-width: 800px;
-            margin-bottom: 2rem;
-            font-weight: 400;
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .intel-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             padding: 2.5rem;
-            border-radius: 4px;
-            backdrop-filter: blur(12px);
+            border-radius: 8px;
             position: relative;
+            height: 100%;
         }
 
-        .stat-huge {
+        .highlight-text { color: var(--accent-blue); font-weight: 700; }
+        .warning-text { color: var(--accent-red); font-weight: 700; }
+
+        .stat-num { font-family: var(--font-mono); font-size: 4rem; font-weight: 800; line-height: 1; margin-bottom: 0.5rem; }
+
+        ul.simple-list { list-style: none; }
+        ul.simple-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        ul.simple-list li::before { content: "🛡️"; margin-right: 1rem; }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-family: var(--font-mono);
-            font-size: 5rem;
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: -0.05em;
+            margin-bottom: 1rem;
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        ul.check-list {
-            list-style: none;
+        .challenge-box {
+            background: rgba(255, 77, 79, 0.05);
+            border: 1px dashed var(--accent-red);
+            padding: 1.5rem;
+            border-radius: 4px;
             margin-top: 1rem;
         }
 
-        ul.check-list li {
+        .big-callout {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-green);
             margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-            font-size: 1.2rem;
-        }
-
-        ul.check-list li::before {
-            content: '🚨';
-            position: absolute;
-            left: 0;
-        }
-
-        .success-li::before {
-            content: '✅' !important;
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .stat-huge { font-size: 3.5rem; }
+            section { padding: 5vh 5vw; }
+            .grid-2 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 01 // PROBLEM -->
-    <section id="problem">
+    <!-- PAGE 01: WHAT WE ARE DOING -->
+    <section id="doing">
         <div class="container">
-            <span class="mono-tag">01 // Problem</span>
-            <h1 style="color:var(--accent-red)">CONTENT LEAKING OUT OF CONTROL</h1>
-            <p class="lead">Your paid courses are being shared on Telegram without your permission.</p>
-            <div class="grid-3">
-                <div class="intel-card" style="border-top: 4px solid var(--accent-red);">
-                    <div class="stat-huge" style="color:var(--accent-red)">5,115</div>
-                    <p class="mono-tag">Pirated videos/files found</p>
+            <span class="mono-tag">01 // What We Are Doing</span>
+            <h1>Protecting Your Content 24/7</h1>
+            <p style="font-size: 1.3rem; color: var(--text-dim); max-width: 800px; margin-bottom: 3rem;">We continuously monitor Telegram to find and stop people sharing your paid content illegally. Our system never stops.</p>
+            
+            <div class="grid-2">
+                <div class="intel-card">
+                    <h3 class="highlight-text">How Deep We Monitor</h3>
+                    <ul class="simple-list" style="margin-top: 1rem;">
+                        <li><strong>Public Search:</strong> Visible Telegram links & results.</li>
+                        <li><strong>Private Groups:</strong> Hidden and invite-only piracy hubs.</li>
+                        <li><strong>Smart Tracking:</strong> Finding content even if names are changed.</li>
+                    </ul>
                 </div>
                 <div class="intel-card">
-                    <p style="font-size: 1.2rem;">Users are bypassing your paywall and accessing your hard work for <strong>free</strong>.</p>
+                    <h3 class="highlight-text">Content We Cover</h3>
+                    <ul class="simple-list" style="margin-top: 1rem;">
+                        <li>Full Course Video Modules</li>
+                        <li>PDF Notes & Question Banks</li>
+                        <li>Recorded Live Classes</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 02 // BUSINESS LOSS -->
-    <section id="business-loss">
+    <!-- PAGE 02: WHAT WE HAVE DONE SO FAR & THE GAP -->
+    <section id="status">
         <div class="container">
-            <span class="mono-tag">02 // Business Loss</span>
-            <h2>HOW THIS IS HURTING YOU</h2>
-            <div class="grid-3">
+            <span class="mono-tag">02 // Current Status</span>
+            <h2>What we have done so far</h2>
+            
+            <div class="grid-2">
                 <div class="intel-card">
-                    <h3 class="mono-tag">💸 Revenue Loss</h3>
-                    <p>Potential students are shifting to free pirated versions instead of buying your official courses.</p>
+                    <div class="badge">Success</div>
+                    <div class="stat-num" style="color: var(--accent-green);">1,140</div>
+                    <p class="mono-tag">Links Successfully Removed</p>
+                    <p style="margin-top: 1rem; color: var(--text-dim);">Major piracy groups across multiple subjects have already been targeted and cleared.</p>
                 </div>
+                
                 <div class="intel-card">
-                    <h3 class="mono-tag">📉 Brand Damage</h3>
-                    <p>Premium content loses its perceived value when it's available everywhere for free.</p>
-                </div>
-                <div class="intel-card">
-                    <h3 class="mono-tag">⚔️ Market Impact</h3>
-                    <p>Piracy is now your biggest competitor, showing up directly in student search results.</p>
+                    <div class="badge" style="border-color: var(--accent-red); color: var(--accent-red); background: none;">What is still left?</div>
+                    <div class="stat-num" style="color: var(--accent-red);">3,975</div>
+                    <p class="mono-tag">Active Links Remaining</p>
+                    
+                    <div class="challenge-box">
+                        <strong style="color: var(--accent-red);">The Challenge:</strong> Pirates are moving to hidden/locked groups. These require manual work and legal action to remove.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 04 // MAIN SOURCE -->
-    <section id="concentration">
+    <!-- PAGE 03: NEXT PLAN (95% CONTROL & GUI) -->
+    <section id="plan">
         <div class="container">
-            <span class="mono-tag">04 // Main Source of Leaks</span>
-            <h2>FEW GROUPS CAUSE MOST DAMAGE</h2>
-            <div class="grid-3">
-                <div style="grid-column: span 2;">
-                    <div class="stat-huge" style="color:var(--accent-blue)">56.8%</div>
-                    <p class="lead">More than half of your leaks come from <strong>one major piracy hub</strong>. Stopping a few key groups will cut off the majority of the problem.</p>
+            <span class="mono-tag">03 // Next Plan</span>
+            <h2>Our Path to 95% Control</h2>
+            
+            <div class="grid-2">
+                <div class="intel-card" style="border-left: 4px solid var(--accent-blue);">
+                    <h3 class="highlight-text">Stronger Action</h3>
+                    <ul class="simple-list" style="margin-top: 1rem;">
+                        <li><strong>Legal Action (DMCA):</strong> Official complaints to Telegram.</li>
+                        <li><strong>Breaking Pirate Links:</strong> Flooding groups with broken links.</li>
+                        <li><strong>Finding the Source:</strong> Tracking the original uploaders.</li>
+                    </ul>
+                </div>
+                
+                <div class="intel-card" style="background: linear-gradient(145deg, #0a0a0a, #1a1a1a);">
+                    <div class="badge">Upcoming Feature</div>
+                    <h3 style="color: var(--accent-blue);">Live Monitoring Dashboard</h3>
+                    <p style="color: var(--text-dim); margin-top: 1rem;">You will soon get access to a simple interface to manage your protection:</p>
+                    <ul class="simple-list" style="margin-top: 1rem;">
+                        <li>📡 <strong>Live Tracking:</strong> See leaks in real-time.</li>
+                        <li>⚡ <strong>1-Click Action:</strong> Approve removals instantly.</li>
+                        <li>📁 <strong>Proof Storage:</strong> Download evidence for legal use.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 05 // WHERE IT IS COMING FROM -->
-    <section id="sources">
+    <!-- PAGE 04: WHY THIS MATTERS (VALUE ADD) -->
+    <section id="value">
         <div class="container">
-            <span class="mono-tag">05 // Where it is coming from</span>
-            <h2>MAJOR TELEGRAM GROUPS</h2>
-            <div class="grid-3">
+            <span class="mono-tag">04 // Why This Matters</span>
+            <h2>Business Value</h2>
+            
+            <div class="grid-2">
                 <div class="intel-card">
-                    <h4 class="mono-tag" style="color:var(--accent-red)">NEET PG V5</h4>
-                    <p>Main source sharing full course content.</p>
+                    <h3 style="color: var(--accent-green); margin-bottom: 0.5rem;">💰 More Revenue</h3>
+                    <p>Every link removed redirects users back to your official platform to pay.</p>
                 </div>
                 <div class="intel-card">
-                    <h4 class="mono-tag" style="color:var(--accent-red)">QRP V5</h4>
-                    <p>Fast sharing of revision and high-yield content.</p>
+                    <h3 style="color: var(--accent-blue); margin-bottom: 0.5rem;">📈 Better Quality</h3>
+                    <p>Students use your latest, original content, not outdated pirate versions.</p>
                 </div>
                 <div class="intel-card">
-                    <h4 class="mono-tag" style="color:var(--accent-red)">ENT RAJIB</h4>
-                    <p>Targeted subject-specific leaks.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 07 // SPEED OF ACTION -->
-    <section id="speed">
-        <div class="container">
-            <span class="mono-tag">07 // Speed of Action</span>
-            <h2>FAST RESPONSE</h2>
-            <div class="intel-card" style="border-left: 5px solid var(--accent-blue);">
-                <p class="lead">"Leaks detected within minutes."</p>
-                <p>Because the system never sleeps, we catch piracy before it can spread to the next thousand users.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 08 // RESULTS SO FAR -->
-    <section id="results">
-        <div class="container">
-            <span class="mono-tag">08 // Results So Far</span>
-            <h2>CURRENT PERFORMANCE</h2>
-            <div class="grid-3">
-                <div class="intel-card">
-                    <div class="stat-huge counter" data-target="5115">0</div>
-                    <div class="mono-tag">Leaks Found</div>
+                    <h3 style="color: var(--accent-blue); margin-bottom: 0.5rem;">🏆 Strong Brand</h3>
+                    <p>When "free" is hard to find, your platform stays premium and valuable.</p>
                 </div>
                 <div class="intel-card">
-                    <div class="stat-huge counter" data-target="1140">0</div>
-                    <div class="mono-tag">Links Removed</div>
-                </div>
-                <div class="intel-card">
-                    <div class="stat-huge counter" data-target="81">0</div><span class="stat-huge">%</span>
-                    <div class="mono-tag">Success Rate</div>
+                    <h3 style="color: var(--accent-red); margin-bottom: 0.5rem;">⚖️ Legal Support</h3>
+                    <p>We collect proof so you can take action against major pirates if needed.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 09 // IMPACT -->
-    <section id="reduction">
-        <div class="container">
-            <span class="mono-tag">09 // Impact</span>
-            <h2>LEAKS ARE REDUCING</h2>
-            <div class="stat-huge" style="color:var(--accent-green)">22.3%</div>
-            <p class="lead">Total reduction achieved. Control has started, but continuous action is required to keep the numbers down.</p>
-        </div>
-    </section>
-
-    <!-- 12 // CURRENT STATUS -->
-    <section id="control">
-        <div class="container">
-            <span class="mono-tag">12 // Current Status</span>
-            <h2>CONTROL IN PROGRESS</h2>
-            <ul class="check-list">
-                <li class="success-li">5,115 leaks tracked</li>
-                <li class="success-li">1,140 removed</li>
-                <li class="success-li">Major groups identified</li>
-            </ul>
-            <p class="lead" style="margin-top: 2rem; color: var(--accent-green);">"Situation is being handled, but not fully stopped yet."</p>
-        </div>
-    </section>
-
-    <!-- 13 // FINAL MESSAGE -->
-    <section id="final" style="text-align: center; border-bottom: none; background: radial-gradient(circle at center, #110505 0%, #000 100%);">
-        <div class="container">
-            <h2 style="color:var(--accent-red)">🚨 YOUR CONTENT IS ALREADY BEING SHARED ILLEGALLY.</h2>
-            <p class="lead" style="margin: 0 auto 3rem;">Thousands of users are accessing it for free. This is directly affecting your revenue.</p>
-            <div style="font-size: 2rem; font-weight: 900; color: var(--accent-green); text-transform: uppercase;">
-                We are actively working to stop it.
+            <div style="margin-top: 5rem; border-top: 1px solid var(--border); padding-top: 3rem; text-align: center;">
+                <p class="mono-tag" style="color: var(--accent-green); margin-bottom: 1rem;">// Final Message //</p>
+                <div class="big-callout">Goal: Stop piracy at the source and protect your revenue.</div>
             </div>
         </div>
     </section>
 
     <script>
-        const observerOptions = { threshold: 0.2 };
+        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    if (entry.target.id === 'results') {
-                        startCounters(entry.target);
-                    }
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll('section').forEach(section => observer.observe(section));
-
-        function startCounters(parent) {
-            const counters = parent.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                if (counter.classList.contains('counted')) return;
-                const target = +counter.getAttribute('data-target');
-                const duration = 1500;
-                let startTime = null;
-
-                const animate = (currentTime) => {
-                    if (!startTime) startTime = currentTime;
-                    const progress = Math.min((currentTime - startTime) / duration, 1);
-                    counter.innerText = Math.floor(progress * target).toLocaleString();
-                    if (progress < 1) {
-                        requestAnimationFrame(animate);
-                    } else {
-                        counter.innerText = target.toLocaleString();
-                        counter.classList.add('counted');
-                    }
-                };
-                requestAnimationFrame(animate);
-            });
-        }
     </script>
 </body>
 </html>
